@@ -15,12 +15,20 @@
 
     export const xyzContext = createContext();
 
-    export const xyzContextProvider = (props) => {
+    export const xyzProvider = (props) => {
 
         const [state, setState] = useState([1,2,3]);
 
         return(
-            <xyzContext.Povider>{props.childern}</xyzContext.Povider>
+            <xyzContext.Povider value = {[state, setState]}>{props.childern}</xyzContext.Povider>
         )
     }
 ```
+
+Now just import the Provider and wrap the App with that component
+
+
+
+Now in individual component import Context and useContext
+
+const value = useContext(xyzContext);
